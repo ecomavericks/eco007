@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMavericks - Sustainable Shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --primary-green: #2ecc71;
+    --secondary-green: #27ae60;
+    --light-green: #d4edda;
+    --dark-green: #1e8449;
+    --background-color: #f4f9f4;
+    --text-color: #2c3e50;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #6c757d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navigation Styles */
+header {
+    background-color: white;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-green);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--primary-green);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary-green);
+    transition: var(--transition);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.cart-count {
+    background-color: var(--primary-green);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 5%;
+    background: linear-gradient(135deg, var(--light-green), white);
+    min-height: 80vh;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    max-width: 50%;
+    animation: fadeInLeft 1s ease;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    color: var(--dark-green);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.primary-btn {
+    background-color: var(--primary-green);
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.primary-btn:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+}
+
+.secondary-btn:hover {
+    background-color: rgba(46, 204, 113, 0.1);
+    transform: translateY(-3px);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 2rem;
+    text-align: center;
+    animation: fadeInRight 1s ease;
+}
+
+.hero-stats .stat {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.hero-stats .stat:hover {
+    transform: translateY(-5px);
+}
+
+.hero-stats .stat h3 {
+    color: var(--dark-green);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Featured Categories */
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-green);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.featured-categories, #featured-products, #blog-preview {
+    padding: 5rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.category-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary-green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-card:hover::before {
+    transform: scaleX(1);
+}
+
+.category-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+.category-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.category-card p {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-green);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.product-price {
+    font-weight: 700;
+    color: var(--dark-green);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.product-rating .stars {
+    color: #f1c40f;
+}
+
+.product-rating .eco-rating {
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.add-to-cart {
+    flex: 1;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.add-to-cart:hover {
+    background-color: var(--dark-green);
+}
+
+.wishlist-btn {
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wishlist-btn:hover {
+    background-color: var(--medium-gray);
+    color: #e74c3c;
+}
+
+/* Blog Preview */
+.blog-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.blog-card:hover .blog-image {
+    transform: scale(1.05);
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-content h3 {
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.blog-content p {
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-green);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.read-more:hover {
+    color: var(--dark-green);
+    gap: 0.75rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-green);
+    color: white;
+    padding: 4rem 5% 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-column h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-green);
+    bottom: 0;
+    left: 0;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-column a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 300;
+}
+
+.footer-column a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.newsletter {
+    grid-column: span 2;
+}
+
+.newsletter p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.newsletter-form button {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.newsletter-form button:hover {
+    background-color: var(--secondary-green);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-green);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.active {
+    right: 0;
+}
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.cart-header h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark-gray);
+    transition: var(--transition);
+}
+
+.close-cart:hover {
+    color: var(--text-color);
+    transform: rotate(90deg);
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.cart-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.cart-item-price {
+    font-weight: 600;
+    color: var(--dark-green);
+    margin-bottom: 0.5rem;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--medium-gray);
+    border-radius: 5px;
+}
+
+.quantity-btn {
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--dark-gray);
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    background: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.cart-summary {
+    padding: 1.5rem;
+    border-top: 1px solid var(--medium-gray);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.checkout-btn:hover {
+    background-color: var(--dark-green);
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 2rem;
+    color: var(--dark-gray);
+}
+
+.empty-cart i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--medium-gray);
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-green);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    z-index: 1002;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 5%;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+    
+    .hero-stats {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .newsletter {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .cart-sidebar {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img\logo.jfif" alt="ECO MAVERICKS Logo">
+                <h1>ECO MAVERICKS</h1>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#blog">Sustainability Blog</a></li>
+                <li><a href="#sell">Sell</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="cart-icon" id="open-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="#account"><i class="fas fa-user"></i></a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Homepage Hero Section -->
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Shop Sustainably, Live Responsibly</h2>
+                <p>Discover eco-friendly products and support a circular economy. Join our community of conscious consumers making a difference with every purchase.</p>
+                <div class="cta-buttons">
+                    <a href="#products" class="btn primary-btn">
+                        <i class="fas fa-leaf"></i> Shop Recycled
+                    </a>
+                    <a href="#sustainability" class="btn secondary-btn">
+                        <i class="fas fa-info-circle"></i> Learn About Impact
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>50K+</h3>
+                    <p>Recycled Products</p>
+                </div>
+                <div class="stat">
+                    <h3>25K</h3>
+                    <p>Active Sellers</p>
+                </div>
+                <div class="stat">
+                    <h3>100T</h3>
+                    <p>Waste Prevented</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section id="categories" class="featured-categories">
+            <div class="section-title">
+                <h2>Browse Categories</h2>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="img\img 1.jpg" alt="Recycled Clothing">
+                    <h3>Recycled Clothing</h3>
+                    <p>Fashion that cares for the planet</p>
+                </div>
+                <div class="category-card">
+                    <img src="img\img2.jpg" alt="Upcycled Furniture">
+                    <h3>Upcycled Furniture</h3>
+                    <p>Unique pieces with history</p>
+                </div>
+                <div class="category-card">
+                    <img src="img\img3.jfif" alt="Eco Electronics">
+                    <h3>Eco Electronics</h3>
+                    <p>Tech with minimal footprint</p>
+                </div>
+                <div class="category-card">
+                    <img src="img\img4.jpg" alt="Sustainable Home">
+                    <h3>Sustainable Home</h3>
+                    <p>Eco-conscious living spaces</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Preview -->
+        <section id="featured-products">
+            <div class="section-title">
+                <h2>Featured Eco Products</h2>
+            </div>
+            <div class="product-grid" id="featured-products-grid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <!-- Blog Preview -->
+        <section id="blog-preview">
+            <div class="section-title">
+                <h2>Sustainability Insights</h2>
+            </div>
+            <div class="blog-cards">
+                <div class="blog-card">
+                    <img src="img\img pd.jpg" alt="Sustainability Tips" class="blog-image">
+                    <div class="blog-content">
+                        <h3>10 Ways to Reduce Your Carbon Footprint</h3>
+                        <p>Simple daily changes that make a big difference for our planet and future generations.</p>
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="img\dooms.jfif" alt="Recycling Guide" class="blog-image">
+                    <div class="blog-content">
+                        <h3>Complete Guide to Recycling at Home</h3>
+                        <p>Learn how to recycle effectively and avoid common mistakes that contaminate recycling streams.</p>
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="img\sfl.webp" alt="Slow Fashion" class="blog-image">
+                    <div class="blog-content">
+                        <h3>The Rise of Slow Fashion Movement</h3>
+                        <p>Discover how choosing quality over quantity can transform the fashion industry.</p>
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#sell">Sell</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="#become-seller">Become a Seller</a></li>
+                    <li><a href="#impact">Our Impact</a></li>
+                    <li><a href="#partnerships">Partnerships</a></li>
+                    <li><a href="#stories">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#shipping">Shipping</a></li>
+                    <li><a href="#returns">Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Stay Sustainable</h4>
+                <p>Subscribe for eco-tips and exclusive offers</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <div class="social-links">
+                    <a href="#facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 EcoMarket. All Rights Reserved. <a href="#privacy" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#terms" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically loaded here -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span>₹<span id="cart-total">0.00</span></span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-credit-card"></i> Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Item added to cart</span>
+    </div>
+
+    <script>
+// Product Data Structure
+const products = [
+    
+           {
+        id: 4,
+        name: "Tonka Titan",
+        category: "Home Decor",
+        price: 45.50,
+        description: "Elegant vase crafted from recycled glass materials with a unique textured surface.",
+        ecoRating: 4.3,
+        image: "img/truck toy.jfif"
+    }, {
+        id: 6,
+        name: "Jingle keys",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/kuzhanda savi.jfif",
+        badge: "Popular"
+    }, {
+        id: 7,
+        name: "magic walkers",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/sneakers.jfif",
+        badge: "Popular"
+    }, {
+        id: 8,
+        name: "breezeCuts",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/aunty shoe.jfif",
+        badge: "Popular"
+    }, {
+        id: 5,
+        name: "Grace grab",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/oc kattapai.jfif",
+        badge: "Popular"
+    },
+    {
+       
+        id: 5,
+        name: "mobilestash",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/kutty bag.jfif",
+        badge: "Popular"
+    },
+        {
+            id: 5,
+        name: "chase wear",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/full pant.jfif",
+        badge: "Popular"
+    },
+    {id: 5,
+        name: "Home Glow",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/malligai samaan.jfif ",
+        badge: "Popular"
+},
+  {id: 5,
+        name: "Nestify",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/power ade.jfif",
+        badge: "Popular"
+},  {  id: 5,
+        name: "wander pack",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/clg bag.jfif",
+        badge: "Popular"
+},
+{
+id: 5,
+        name: "Cozy crest",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/JACKET.jfif",
+        badge: "Popular"
+},  
+{       id: 5,
+        name: "CasualCore",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/t shirt.jfif",
+        badge: "Popular"
+},
+{
+        id: 5,
+        name: "Head Glide",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/cap.jfif",
+        badge: "Popular"
+},
+{        id: 5,
+        name: "EpoxyGlow",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/table.jfif",
+        badge: "Popular"
+},    
+       {  id: 5,
+        name: "crystal Craft",
+        category: "Personal Care",
+        price: 12.99,
+        description: "Set of 4 biodegradable bamboo toothbrushes with charcoal-infused bristles.",
+        ecoRating: 4.8,
+        image: "img/dining table.jfif",
+        badge: "Popular"
+    }
+    
+    
+    
+];
+
+// Cart functionality
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// DOM Elements
+const cartSidebar = document.getElementById('cart-sidebar');
+const cartOverlay = document.getElementById('cart-overlay');
+const openCartBtn = document.getElementById('open-cart');
+const closeCartBtn = document.getElementById('close-cart');
+const cartItemsContainer = document.getElementById('cart-items');
+const cartTotalElement = document.getElementById('cart-total');
+const cartCountElement = document.querySelector('.cart-count');
+const productsGrid = document.getElementById('featured-products-grid');
+const toast = document.getElementById('toast');
+const toastMessage = document.getElementById('toast-message');
+
+// Event Listeners
+openCartBtn.addEventListener('click', toggleCart);
+closeCartBtn.addEventListener('click', toggleCart);
+cartOverlay.addEventListener('click', toggleCart);
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', () => {
+    renderProducts();
+    updateCartCount();
+    renderCartItems();
+});
+
+// Toggle cart visibility
+function toggleCart() {
+    cartSidebar.classList.toggle('active');
+    cartOverlay.classList.toggle('active');
+    document.body.style.overflow = cartSidebar.classList.contains('active') ? 'hidden' : 'auto';
+}
+
+// Render products to the page
+function renderProducts() {
+    productsGrid.innerHTML = products.map(product => `
+        <div class="product-card" data-id="${product.id}">
+            ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+            <img src="${product.image}" alt="${product.name}" class="product-image">
+            <div class="product-info">
+                <h3 class="product-title">${product.name}</h3>
+                <div class="product-price">₹${product.price.toFixed(2)}</div>
+                <div class="product-rating">
+                    <div class="stars">
+                        ${'<i class="fas fa-star"></i>'.repeat(Math.floor(product.ecoRating))}
+                        ${product.ecoRating % 1 >= 0.5 ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                    </div>
+                    <span class="eco-rating">Eco: ${product.ecoRating}/5</span>
+                </div>
+                <div class="product-actions">
+                    <button class="add-to-cart" data-id="${product.id}">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    // Add event listeners to all add to cart buttons
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productId = parseInt(e.target.getAttribute('data-id'));
+            addToCart(productId);
+        });
+    });
+
+    // Add event listeners to wishlist buttons
+    document.querySelectorAll('.wishlist-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.target.innerHTML = '<i class="fas fa-heart"></i>';
+            showToast('Item added to wishlist');
+        });
+    });
+}
+
+// Add product to cart
+function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+
+    const existingItem = cart.find(item => item.id === productId);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1
+        });
+    }
+
+    updateCart();
+    showToast(`${product.name} added to cart`);
+}
+
+// Update cart in localStorage and UI
+function updateCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    renderCartItems();
+}
+
+// Update cart count in header
+function updateCartCount() {
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCountElement.textContent = totalItems;
+}
+
+// Render cart items in sidebar
+function renderCartItems() {
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        `;
+        cartTotalElement.textContent = '0.00';
+        return;
+    }
+
+    cartItemsContainer.innerHTML = cart.map(item => `
+        <div class="cart-item" data-id="${item.id}">
+            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+            <div class="cart-item-details">
+                <h4 class="cart-item-title">${item.name}</h4>
+                <div class="cart-item-price">₹${(item.price * item.quantity).toFixed(2)}</div>
+                <div class="cart-item-actions">
+                    <div class="quantity-control">
+                        <button class="quantity-btn decrease" data-id="${item.id}">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <input type="text" class="quantity-input" value="${item.quantity}" readonly>
+                        <button class="quantity-btn increase" data-id="${item.id}">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <button class="remove-item" data-id="${item.id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    // Calculate and display total
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    cartTotalElement.textContent = total.toFixed(2);
+
+    // Add event listeners to quantity buttons
+    document.querySelectorAll('.decrease').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productId = parseInt(e.target.closest('button').getAttribute('data-id'));
+            updateQuantity(productId, -1);
+        });
+    });
+
+    document.querySelectorAll('.increase').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productId = parseInt(e.target.closest('button').getAttribute('data-id'));
+            updateQuantity(productId, 1);
+        });
+    });
+
+    // Add event listeners to remove buttons
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productId = parseInt(e.target.closest('button').getAttribute('data-id'));
+            removeFromCart(productId);
+        });
+    });
+}
+
+// Update item quantity in cart
+function updateQuantity(productId, change) {
+    const itemIndex = cart.findIndex(item => item.id === productId);
+    if (itemIndex === -1) return;
+
+    cart[itemIndex].quantity += change;
+
+    if (cart[itemIndex].quantity <= 0) {
+        cart.splice(itemIndex, 1);
+    }
+
+    updateCart();
+}
+
+// Remove item from cart
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    updateCart();
+}
+
+// Show toast notification
+function showToast(message) {
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// Newsletter form submission
+document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = e.target.querySelector('input').value;
+    // Here you would typically send the email to your server
+    showToast('Thanks for subscribing!');
+    e.target.querySelector('input').value = '';
+});
+
+// Checkout button
+document.getElementById('checkout-btn').addEventListener('click', () => {
+    if (cart.length === 0) {
+        showToast('Your cart is empty');
+        return;
+    }
+    showToast('Proceeding to checkout');
+    // In a real app, you would redirect to checkout page
+});
+</script>
+</body>
+</html>
